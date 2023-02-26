@@ -6,6 +6,11 @@
   font-family: 'Ubuntu', sans-serif;
 }
 
+::placeholder {
+  color: #9898a2 !important;
+  font-weight: 500;
+}
+
 .center{
   display: flex;
   justify-content: center;
@@ -19,21 +24,134 @@ body{
 .stepsContent{
   background-color: #ffffff;
   border-radius: 18px;
-  width: 60vw;
+  width: 1000px;
 }
 
 .stepLeftContent{
-  position: relative;
-  height: 100%;
+  background: url('./assets/images/bg-sidebar-desktop.svg')no-repeat center center/cover;
+  border-radius: 18px;
+  height: 600px;
+  width: 100%;
+  max-width: 300px;
+  min-width: 200px;
+  padding: 40px 0;
 }
 
-.stepLeftContent::before{
-  content: "";
-  background: url('./assets/images/bg-sidebar-desktop.svg')no-repeat center center/cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-  border-radius: 18px;
-  height: 100%;
-  width: 100%;
+.stepLeftContent ul{
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.stepLeftContent ul li{
+  gap: 12px;
+}
+
+.stepsNumberIcon{
+  background-color: #473dff;
+  color: #eef1fd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  height: 42px;
+  width: 42px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: 1px solid #eef1fd;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.stepsNumberIcon:hover{
+  background-color: #bee1fc6d;
+}
+
+.stepsNumberIcon.active{
+  background-color: #bee1fc;
+  color: #052a58;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  height: 42px;
+  width: 42px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-color: #bee1fc;
+}
+
+.stepsNumber{
+  font-size: 0.85rem;
+  margin-bottom: 2px;
+  color: #a3a1fe;
+}
+
+.stepsName{
+  font-size: 0.9rem;
+  color: #f9f9ff;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.stepsRightContent{
+  padding: 40px 60px;
+  
+}
+
+.stepsHeadingName{
+  font-weight: bold;
+  color: #052a58;
+}
+
+.stepsSubHeading{
+  color: #a3a3ac;
+  font-size: 1rem;
+}
+
+.personalInfo input.form-control{
+  padding: 12px 16px;
+}
+
+.personalInfo label.form-label{
+  color: #052a58;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.stepsRightInnerContent{
+  height: 75%;
+}
+
+.stepsRightBottomContent{
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.personalInfo .stepsRightBottomContent{
+  justify-content: flex-end;
+}
+
+.btn{
+  padding: 10px 20px;
+  border-radius: 8px;
+}
+
+.btn-primary{
+  background-color: #03295a;
+  border-color: #03295a;
+}
+
+.btn-primary:hover, .btn.active{
+  background-color: #03295a !important;
+  border-color: #03295a !important;
+}
+.cardSelection{
+  border: 1px solid #e4e4e5;
+}
+.btn-check:checked+.btn.cardSelection{
+  background-color: #f8f9fe;
+  border: 1px solid #03295a;
 }
