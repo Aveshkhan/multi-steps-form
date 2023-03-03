@@ -1,6 +1,8 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import arcadeIcon from '../assets/images/icon-arcade.svg'
+import advanceIcon from '../assets/images/icon-advanced.svg'
+import proIcon from '../assets/images/icon-pro.svg'
 
 const SelectYourPlan = () => {
   return (
@@ -49,34 +51,56 @@ const SelectYourPlan = () => {
               </ul>
             </div>
           </div>
-          <div className="col-8 stepsRightContent">
+          <div className="col-8 selectPlan stepsRightContent">
             <div className="stepRightTopContent mb-4">
-              <h2 className='stepsHeadingName'>Personal info</h2>
-              <p className='stepsSubHeading'>Please provide your name, email address, and phone number</p>
+              <h2 className='stepsHeadingName'>Select your plan</h2>
+              <p className='stepsSubHeading'>You have the option of monthly or yearly billing.</p>
             </div>
-            <div className="stepsRightInnerContent row">
-              <div className="col-4">
-                <input type="radio" class="btn-check" name='options' id="btn-check-outlined" autocomplete="off" />
-                <label class="btn cardSelection" for="btn-check-outlined">
-                  <img src={arcadeIcon} alt="" />
-                  <p>Single toggle</p>
-                </label>
+            <div className="stepsRightInnerContent">
+              <div className="row mb-5">
+                <div className="col-4">
+                  <input type="radio" className="btn-check" name='options' id="btn-check-outlined" autocomplete="off" />
+                  <label className="btn cardSelection" for="btn-check-outlined">
+                    <img className='cardSelectionImg' src={arcadeIcon} alt="arcadeIcon" />
+                    <p className='cardSelectionHeader mb-0'>Arcade</p>
+                    <p className='cardSelectionPrice mb-0'>$90/yr</p>
+                    <p className='cardSelectionYearlyDiscount mb-0'>2 months free</p>
+                  </label>
+                </div>
+                <div className="col-4">
+                  <input type="radio" className="btn-check" name='options' id="btn-check-outlined2" autocomplete="off" />
+                  <label className="btn cardSelection" for="btn-check-outlined2">
+                    <img className='cardSelectionImg' src={advanceIcon} alt="advanceIcon" />
+                    <p className='cardSelectionHeader mb-0'>Advanced</p>
+                    <p className='cardSelectionPrice mb-0'>$120/yr</p>
+                    <p className='cardSelectionYearlyDiscount mb-0'>2 months free</p>
+                  </label>
+                </div>
+                <div className="col-4">
+                  <input type="radio" className="btn-check" name='options' id="btn-check-outlined3" autocomplete="off" />
+                  <label className="btn cardSelection" for="btn-check-outlined3">
+                    <img className='cardSelectionImg' src={proIcon} alt="proIcon" />
+                    <p className='cardSelectionHeader mb-0'>Pro</p>
+                    <p className='cardSelectionPrice mb-0'>$150/yr</p>
+                    <p className='cardSelectionYearlyDiscount mb-0'>2 months free</p>
+                  </label>
+                </div>
               </div>
-              <div className="col-4">
-                <input type="radio" class="btn-check" name='options' id="btn-check-outlined2" autocomplete="off" />
-                <label class="btn cardSelection" for="btn-check-outlined2">Single toggle</label>
+              <div className="monthyYearlyToggle">
+                <p className="toggleText mb-0">Monthly</p>
+                <div class="form-check form-switch">
+                  <input className="form-check-input customToggle" type="checkbox" role="switch" id="flexSwitchCheckDefault" />
+                </div>
+                <p className="toggleText mb-0">Yearly</p>
               </div>
-              <div className="col-4">
-                <input type="radio" class="btn-check" name='options' id="btn-check-outlined3" autocomplete="off" />
-                <label class="btn cardSelection" for="btn-check-outlined3">Single toggle</label>
-              </div>
+
             </div>
 
 
 
             <div className="stepsRightBottomContent">
-              <NavLink className="btn border-0 text-secondary" to="/">Go Back</NavLink>
-              <NavLink className="btn btn-primary" to="/selectyourplan">Next Step</NavLink>
+              <NavLink className="btn border-0 text-black-50 fw-bold" to="/">Go Back</NavLink>
+              <NavLink className="btn btn-primary" to="/pickAddOns">Next Step</NavLink>
             </div>
 
           </div>

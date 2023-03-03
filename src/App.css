@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap');
-*{
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -11,23 +12,23 @@
   font-weight: 500;
 }
 
-.center{
+.center {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-body{
+body {
   background-color: #eef5ff;
 }
 
-.stepsContent{
+.stepsContent {
   background-color: #ffffff;
   border-radius: 18px;
   width: 1000px;
 }
 
-.stepLeftContent{
+.stepLeftContent {
   background: url('./assets/images/bg-sidebar-desktop.svg')no-repeat center center/cover;
   border-radius: 18px;
   height: 600px;
@@ -37,18 +38,18 @@ body{
   padding: 40px 0;
 }
 
-.stepLeftContent ul{
+.stepLeftContent ul {
   display: flex;
   flex-direction: column;
   gap: 2rem;
   align-items: flex-start;
 }
 
-.stepLeftContent ul li{
+.stepLeftContent ul li {
   gap: 12px;
 }
 
-.stepsNumberIcon{
+.stepsNumberIcon {
   background-color: #473dff;
   color: #eef1fd;
   display: flex;
@@ -64,11 +65,11 @@ body{
   transition: all 0.3s ease;
 }
 
-.stepsNumberIcon:hover{
+.stepsNumberIcon:hover {
   background-color: #bee1fc6d;
 }
 
-.stepsNumberIcon.active{
+.stepsNumberIcon.active {
   background-color: #bee1fc;
   color: #052a58;
   display: flex;
@@ -82,76 +83,184 @@ body{
   border-color: #bee1fc;
 }
 
-.stepsNumber{
+.stepsNumber {
   font-size: 0.85rem;
   margin-bottom: 2px;
   color: #a3a1fe;
 }
 
-.stepsName{
+.stepsName {
   font-size: 0.9rem;
   color: #f9f9ff;
   font-weight: bold;
   letter-spacing: 1px;
 }
 
-.stepsRightContent{
+.stepsRightContent {
   padding: 40px 60px;
-  
+
 }
 
-.stepsHeadingName{
+.stepsHeadingName {
   font-weight: bold;
   color: #052a58;
 }
 
-.stepsSubHeading{
+.stepsSubHeading {
   color: #a3a3ac;
   font-size: 1rem;
 }
 
-.personalInfo input.form-control{
+.personalInfo input.form-control {
   padding: 12px 16px;
 }
 
-.personalInfo label.form-label{
+.personalInfo label.form-label {
   color: #052a58;
   font-weight: 500;
   font-size: 0.9rem;
 }
 
-.stepsRightInnerContent{
+.stepsRightInnerContent {
   height: 75%;
 }
 
-.stepsRightBottomContent{
+.stepsRightBottomContent {
   display: flex;
   justify-content: space-between;
   gap: 1rem;
 }
 
-.personalInfo .stepsRightBottomContent{
+.personalInfo .stepsRightBottomContent {
   justify-content: flex-end;
 }
 
-.btn{
+.btn {
   padding: 10px 20px;
   border-radius: 8px;
 }
 
-.btn-primary{
+.btn-primary {
   background-color: #03295a;
   border-color: #03295a;
 }
 
-.btn-primary:hover, .btn.active{
+.btn-primary:hover,
+.btn.active {
   background-color: #03295a !important;
   border-color: #03295a !important;
 }
-.cardSelection{
+
+.cardSelection {
   border: 1px solid #e4e4e5;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 16px 16px;
 }
-.btn-check:checked+.btn.cardSelection{
+
+.btn-check:checked+.btn.cardSelection {
   background-color: #f8f9fe;
   border: 1px solid #03295a;
+}
+
+.btn-check+.btn.cardSelection:hover {
+  border: 1px solid #03295a;
+}
+
+.cardSelectionImg{
+  margin-bottom: 40px;
+}
+
+.cardSelectionHeader{
+  font-weight: 700;
+  color: #273d5b;
+}
+
+.cardSelectionPrice{
+  color: #b4b4be;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.cardSelectionYearlyDiscount{
+  font-size: 0.9rem;
+  color: #293445;
+  font-weight: 500;
+}
+
+.monthyYearlyToggle{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  background-color: #f8f9fe;
+  height: 56px;
+  border-radius: 10px;
+}
+
+.form-switch .form-check-input{
+  width: 40px;
+  height: 21px;
+}
+
+.customToggle.form-check-input:checked{
+  background-color: #05285a;
+  border-color: #05285a;
+}
+
+.toggleText{
+  font-weight: 700;
+  color: #9898a2;
+}
+
+.addsOnsCards{
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  border: 1px solid #b4b4be;
+  border-radius: 10px;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.addsOnsCards label.form-check-label{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  cursor: pointer;
+}
+
+.addsOnsCards .form-check-input{
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+}
+
+.addsOnsCards .form-check-input:checked{
+  background-color: #483eff;
+}
+
+.addsOnsCards + .form-check-input:checked{
+  border-color: #03295a;
+  background-color: #03295a;
+}
+
+.addOnsCardsHeading {
+  font-weight: 700;
+  color: #03295a;
+}
+
+.addOnsCardsSubHeading {
+  font-weight: 500;
+  color: #9898a2;
+  font-size: 0.9rem;
+}
+
+.addOnsCardPrice{
+  color: #483eff;
+  font-size: 0.9rem;
+  font-weight: 500;
 }
