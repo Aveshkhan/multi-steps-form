@@ -55,8 +55,8 @@ const PickAddOns = () => {
             </div>
             <div className="stepsRightInnerContent">
 
-              <div className="form-check addsOnsCards">
-                <input className={"form-check-input ms-0"  ? "active" : "" } type="checkbox" value="" id="flexCheckDefault" />
+              <div className={`form-check addsOnsCards ${checked === true ? "active" : ""}`} >
+                <input className="form-check-input ms-0" type="checkbox" onChange={(e) => {setChecked(!checked)}} id="flexCheckDefault" />
                 <label className="form-check-label" for="flexCheckDefault">
                   <div className="addOnsCardContent">
                     <p className="addOnsCardsHeading mb-0">Online service</p>
