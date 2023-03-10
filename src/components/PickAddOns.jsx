@@ -1,7 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 
 const PickAddOns = () => {
+  const [onlineServiceCheck, setOnlineServiceCheck] = useState(false)
+  const [largerStorageCheck, setLargerStorageCheck] = useState(false)
+  const [customizableProfileCheck, setCustomizableProfileCheck] = useState(false)
+
+
   return (
     <div>
       <div className="container center min-vh-100">
@@ -55,15 +60,39 @@ const PickAddOns = () => {
             </div>
             <div className="stepsRightInnerContent">
 
-              <div className={`form-check addsOnsCards ${checked === true ? "active" : ""}`} >
-                <input className="form-check-input ms-0" type="checkbox" onChange={(e) => {setChecked(!checked)}} id="flexCheckDefault" />
-                <label className="form-check-label" for="flexCheckDefault">
+              <div className={`form-check addsOnsCards ${onlineServiceCheck === true ? "active" : ""}`} >
+                <input className="form-check-input ms-0" type="checkbox" onChange={(e) => {setOnlineServiceCheck(!onlineServiceCheck)}} id="onlineServiceCheck" />
+                <label className="form-check-label" for="onlineServiceCheck">
                   <div className="addOnsCardContent">
                     <p className="addOnsCardsHeading mb-0">Online service</p>
                     <p className="addOnsCardsSubHeading mb-0">Access to multiplayer games</p>
                   </div>
                   <div className="addOnsCardPrice">
                     <p className='mb-0'>+$10/yr</p>
+                  </div>
+                </label>
+              </div>
+              <div className={`form-check addsOnsCards ${largerStorageCheck === true ? "active" : ""}`} >
+                <input className="form-check-input ms-0" type="checkbox" onChange={(e) => {setLargerStorageCheck(!largerStorageCheck)}} id="largerStorageCheck" />
+                <label className="form-check-label" for="largerStorageCheck">
+                  <div className="addOnsCardContent">
+                    <p className="addOnsCardsHeading mb-0">Larger storage</p>
+                    <p className="addOnsCardsSubHeading mb-0">Extra 1TB of cloud save</p>
+                  </div>
+                  <div className="addOnsCardPrice">
+                    <p className='mb-0'>+$20/yr</p>
+                  </div>
+                </label>
+              </div>
+              <div className={`form-check addsOnsCards ${customizableProfileCheck === true ? "active" : ""}`} >
+                <input className="form-check-input ms-0" type="checkbox" onChange={(e) => {setCustomizableProfileCheck(!customizableProfileCheck)}} id="customizableProfileCheck" />
+                <label className="form-check-label" for="customizableProfileCheck">
+                  <div className="addOnsCardContent">
+                    <p className="addOnsCardsHeading mb-0">Customizable profile</p>
+                    <p className="addOnsCardsSubHeading mb-0">Custom theme on your profile</p>
+                  </div>
+                  <div className="addOnsCardPrice">
+                    <p className='mb-0'>+$20/yr</p>
                   </div>
                 </label>
               </div>
@@ -75,7 +104,7 @@ const PickAddOns = () => {
 
             <div className="stepsRightBottomContent">
               <NavLink className="btn border-0 text-black-50 fw-bold" to="/selectyourplan">Go Back</NavLink>
-              <NavLink className="btn btn-primary" to="/pickAddOns">Next Step</NavLink>
+              <NavLink className="btn btn-primary" to="/finishingUp">Next Step</NavLink>
             </div>
 
           </div>

@@ -17,6 +17,17 @@
   justify-content: center;
   align-items: center;
 }
+.fs-7{
+  font-size: 0.9rem;
+}
+
+
+.txtPurple{
+  color: #483eff;
+}
+.txtDark{
+  color: #03295a;
+}
 
 body {
   background-color: #eef5ff;
@@ -151,6 +162,11 @@ body {
   border-color: #03295a !important;
 }
 
+.btn-primary:active{
+  background-color: #473dff !important;
+  border-color: #473dff !important;
+}
+
 .cardSelection {
   border: 1px solid #e4e4e5;
   display: flex;
@@ -161,11 +177,11 @@ body {
 
 .btn-check:checked+.btn.cardSelection {
   background-color: #f8f9fe;
-  border: 1px solid #03295a;
+  border: 1px solid #483eff;
 }
 
 .btn-check+.btn.cardSelection:hover {
-  border: 1px solid #03295a;
+  border: 1px solid #483eff;
 }
 
 .cardSelectionImg{
@@ -267,4 +283,30 @@ body {
 
 .addsOnsCards.active{
   border: 1px solid #483eff;
+  background-color: #f8f9fe;
+}
+
+.addOns .stepsRightInnerContent{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+}
+
+.summaryContent{
+  background-color: #f8f9fe;
+  padding: 25px;
+  border-radius: 10px;
+}
+
+.summaryContentRow{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.summaryContentRow p{
+  color: #9898a2;
+  font-weight: 500;
 }
