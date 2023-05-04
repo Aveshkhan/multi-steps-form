@@ -52,7 +52,7 @@ const ThankYou = () => {
                         
                         <img src={checkIcon} alt="" />                
                         <h2 className='stepsHeadingName txtDark'>Thank you!</h2>
-                        <p>Thanks for confirming your subscription! We hope you have fun using our platform. If you ever need support, please feel free to email us at support@loremgaming.com.</p>
+                        <p className='text-body-tertiary fw-semibold px-4'>Thanks for confirming your subscription! We hope you have fun using our platform. If you ever need support, please feel free to email us at support@loremgaming.com.</p>
 
                     </div>
                 </div>

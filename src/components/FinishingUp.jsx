@@ -1,7 +1,56 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+
 import { NavLink } from 'react-router-dom'
 
 const FinishingUp = () => {
+
+    const [planDuration, setPlanDuration] = useState(JSON.parse(localStorage.getItem('planDuration')) || false)
+    const [subscription, setSubscription] = useState(JSON.parse(localStorage.getItem('subscription')) || "")
+    const [addOn, setaddOn] = useState(JSON.parse(localStorage.getItem('pickAddsOn')) || [])
+    const [onlineServiceCheck, setOnlineServiceCheck] = useState(addOn[0].onlineService || false)
+    const [largerStorageCheck, setLargerStorageCheck] = useState(addOn[1].largerStorage || false)
+    const [customizableProfileCheck, setCustomizableProfileCheck] = useState(addOn[2].customizableProfile || false)
+    const [onlineServiceAmount, setOnlineServiceAmount] = useState(0)
+    const [largerStorageAmount, setLargerStorageAmount] = useState(0)
+    const [customizableProfileAmount, setCustomizableProfileAmount] = useState(0)
+    const [subscriptionAmount, setSubscriptionAmount] = useState(JSON.parse(localStorage.getItem('subscriptionAmount')) || "")
+    const [totalAmount, setTotalAmount] = useState(0)
+    const [subscriptionName, setSubscriptionName] = useState(localStorage.getItem('subscriptionName') || "")
+
+    
+    const setTotalAmountFunction = () => {
+        setTotalAmount(subscriptionAmount + onlineServiceAmount + largerStorageAmount + customizableProfileAmount)
+    }
+
+    useEffect(() => {
+        console.log(planDuration, parseInt(subscription.plan, 10), onlineServiceCheck, largerStorageCheck, customizableProfileCheck)
+        if(onlineServiceCheck === true){
+            if(planDuration === true){
+                setOnlineServiceAmount(10)
+            } else {
+                setOnlineServiceAmount(1)
+            }
+        }
+        if(largerStorageCheck === true){
+            if(planDuration === true){
+                setLargerStorageAmount(20)
+            } else {
+                setLargerStorageAmount(2)
+            }
+        }
+        if (customizableProfileCheck === true){
+            if(planDuration === true){
+                setCustomizableProfileAmount(20)
+            } else {
+                setCustomizableProfileAmount(2)
+            }
+        } 
+        setTimeout(() => {
+            setTotalAmountFunction()
+        }, 500) 
+        
+    })
+
     return (
         <div>
             <div className="container center min-vh-100">
@@ -57,38 +106,47 @@ const FinishingUp = () => {
                             <div className="summaryContent">
                                 <div className="summaryContentRow border-bottom">
                                     <div className="summaryContentLeft">
-                                        <h5 className='fs-6 fw-bold txtDark'>Arcade (Yearly)</h5>
-                                        <p className='text-decoration-underline'>Change</p>
+                                        <h5 className='fs-6 fw-bold txtDark'>{subscriptionName} {planDuration === true ? "(Yearly)" : "(Monthly)"}</h5>
+                                        <p className='text-decoration-underline'><NavLink to="/selectyourplan">Change</NavLink></p>
                                     </div>
                                     <div className="summaryContentRight">
-                                        <h5 className="fs-6 fw-bold txtDark">$90/yr</h5>
+                                        <h5 className="fs-6 fw-bold txtDark">${subscriptionAmount}{planDuration === true ? "/yr" : "/mo"}</h5>
                                     </div>
                                 </div>
-                                <div className="summaryContentRow mt-3">
+                                {onlineServiceCheck === true ? <div className="summaryContentRow mt-3">
                                     <div className="summaryContentLeft">
-                                        <p>Online service</p>
+                                        <p className='mb-0'>Online service</p>
                                     </div>
                                     <div className="summaryContentRight">
-                                        <h5 className="fs-7">+$10/yr</h5>
+                                        <h5 className="fs-7">+${onlineServiceAmount}{planDuration === true ? "/yr" : "/mo"}</h5>
                                     </div>
-                                </div>
-                                <div className="summaryContentRow">
+                                </div> : ""}
+                                {largerStorageCheck === true ? <div className="summaryContentRow mt-3">
                                     <div className="summaryContentLeft">
                                         <p className='mb-0'>Larger storage</p>
                                     </div>
                                     <div className="summaryContentRight">
-                                        <h5 className="fs-7 mb-0">+$20/yr</h5>
+                                        <h5 className="fs-7 mb-0">+${largerStorageAmount}{planDuration === true ? "/yr" : "/mo"}</h5>
                                     </div>
-                                </div>
-                            </div>
-                            <div className="summaryContentRow mt-3 px-4">
+                                </div> : ""}
+                                {customizableProfileCheck === true ? <div className="summaryContentRow mt-3">
                                     <div className="summaryContentLeft">
-                                        <p className='mb-0'>Total (per year)</p>
+                                        <p className='mb-0'>Customizable profile</p>
                                     </div>
                                     <div className="summaryContentRight">
-                                        <h5 className="fw-bold txtPurple mb-0">$120/yr</h5>
+                                        <h5 className="fs-7 mb-0">+${customizableProfileAmount}{planDuration === true ? "/yr" : "/mo"}</h5>
                                     </div>
+                                </div> : ""}
+
+                            </div>
+                            <div className="summaryContentRow mt-3 px-4">
+                                <div className="summaryContentLeft">
+                                    <p className='mb-0'>Total (per year)</p>
                                 </div>
+                                <div className="summaryContentRight">
+                                    <h5 className="fw-bold txtPurple mb-0">${totalAmount}{planDuration === true ? "/yr" : "/mo"}</h5>
+                                </div>
+                            </div>
                         </div>
 
 
