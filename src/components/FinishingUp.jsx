@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from 'react'
 
 import { NavLink } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+
 
 const FinishingUp = () => {
+
+    const navigate = useNavigate();
 
     const [planDuration, setPlanDuration] = useState(JSON.parse(localStorage.getItem('planDuration')) || false)
     const [subscription, setSubscription] = useState(JSON.parse(localStorage.getItem('subscription')) || "")
@@ -50,6 +54,11 @@ const FinishingUp = () => {
         }, 500) 
         
     })
+
+    const thankyouSubmit = () => {
+        navigate('/thankYou')
+        localStorage.clear()
+    }
 
     return (
         <div>
@@ -152,7 +161,7 @@ const FinishingUp = () => {
 
                         <div className="stepsRightBottomContent">
                             <NavLink className="btn border-0 text-black-50 fw-bold" to="/pickAddOns">Go Back</NavLink>
-                            <NavLink className="btn btn-primary" to="/thankYou">Confirm</NavLink>
+                            <button className="btn btn-primary" onClick={thankyouSubmit}>Confirm</button>
                         </div>
 
                     </div>
