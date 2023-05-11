@@ -24,9 +24,9 @@ const PersonalInfo = () => {
 
     return (
         <div>
-            <div className="container center min-vh-100">
-                <div className="stepsContent row shadow-lg p-3">
-                    <div className="col-4 px-0">
+            <div className="container-md center min-vh-100">
+                <div className="stepsContent row shadow-lg p-md-3 p-sm-0">
+                    <div className="col-md-4 col-sm-12 px-0"> 
                         <div className="stepLeftContent">
                             <ul>
                                 <li className='row'>
@@ -68,10 +68,12 @@ const PersonalInfo = () => {
                             </ul>
                         </div>
                     </div>
-                    <div className="col-8 personalInfo stepsRightContent">
+                    <div className="col-md-8 col-sm-12 personalInfo stepsRightContent">
                         <Formik initialValues={{ name: "", email: "", phoneNumber: "" }} validationSchema={personalInfoFormSchema} onSubmit={submit}>
                             {({touched, errors}) => (
                                 <Form className='d-flex flex-column justify-content-between h-100'>
+                                <div className='stepMiddleContentMobile'>
+
                                     <div className="stepRightTopContent mb-4">
                                         <h2 className='stepsHeadingName'>Personal info</h2>
                                         <p className='stepsSubHeading'>Please provide your name, email address, and phone number</p>
@@ -94,6 +96,7 @@ const PersonalInfo = () => {
                                             <ErrorMessage component="div" name="phoneNumber" className='invalid-feedback' />
                                         </div>
 
+                                    </div>
                                     </div>
 
                                     <div className="stepsRightBottomContent mt-5">

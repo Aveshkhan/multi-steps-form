@@ -37,9 +37,9 @@ const SelectYourPlan = () => {
 
   return (
     <div>
-      <div className="container center min-vh-100">
-        <div className="stepsContent row shadow-lg p-3">
-          <div className="col-4 px-0">
+      <div className="container-md center min-vh-100">
+        <div className="stepsContent row shadow-lg p-md-3 p-sm-0">
+          <div className="col-md-4 col-sm-12 px-0">
             <div className="stepLeftContent">
               <ul>
                 <li className='row'>
@@ -81,41 +81,49 @@ const SelectYourPlan = () => {
               </ul>
             </div>
           </div>
-          <div className="col-8 selectPlan stepsRightContent">
+          <div className="col-md-8 col-sm-12 selectPlan stepsRightContent">
             <Formik initialValues={{ plan: "" }} validationSchema={selectYourPlanSchema} onSubmit={submitSelectYourPlan}>
               {({ values }) => (
                 <Form className='d-flex flex-column justify-content-between h-100'>
+                <div className='stepMiddleContentMobile'>
+
                   <div className="stepRightTopContent mb-4">
                     <h2 className='stepsHeadingName'>Select your plan</h2>
                     <p className='stepsSubHeading'>You have the option of monthly or yearly billing.</p>
                   </div>
                   <div className="stepsRightInnerContent">
-                    <div className="row mb-5">
-                      <div className="col-4">
+                    <div className="planSelectionRadio row mb-5">
+                      <div className="col-md-4 col-sm-12">
                         <Field type="radio" className="btn-check" name='plan' value="1" id="btn-check-outlined" autoComplete="off" />
                         <label className="btn cardSelection" htmlFor="btn-check-outlined">
                           <img className='cardSelectionImg' src={arcadeIcon} alt="arcadeIcon" />
+                          <div className="text-start">
                           <p className='cardSelectionHeader mb-0'>Arcade</p>
                           <p className='cardSelectionPrice mb-0'>${planDuration === true ? "90/yr" : "9/mo"}</p>
                           <p className='cardSelectionYearlyDiscount mb-0'>{planDuration === true && "2 months free"}</p>
+                          </div>
                         </label>
                       </div>
-                      <div className="col-4">
+                      <div className="col-md-4 col-sm-12">
                         <Field type="radio" className="btn-check" name='plan' value="2" id="btn-check-outlined2" autoComplete="off" />
                         <label className="btn cardSelection" htmlFor="btn-check-outlined2">
                           <img className='cardSelectionImg' src={advanceIcon} alt="advanceIcon" />
+                          <div className="text-start">
                           <p className='cardSelectionHeader mb-0'>Advanced</p>
                           <p className='cardSelectionPrice mb-0'>${planDuration === true ? "120/yr" : "12/mo"}</p>
                           <p className='cardSelectionYearlyDiscount mb-0'>{planDuration === true && "2 months free"}</p>
+                          </div>
                         </label>
                       </div>
-                      <div className="col-4">
+                      <div className="col-md-4 col-sm-12">
                         <Field type="radio" className="btn-check" name='plan' value="3" id="btn-check-outlined3" autoComplete="off" />
                         <label className="btn cardSelection" htmlFor="btn-check-outlined3">
                           <img className='cardSelectionImg' src={proIcon} alt="proIcon" />
+                          <div className="text-start">
                           <p className='cardSelectionHeader mb-0'>Pro</p>
                           <p className='cardSelectionPrice mb-0'>${planDuration === true ? "150/yr" : "15/mo"}</p>
                           <p className='cardSelectionYearlyDiscount mb-0'>{planDuration === true && "2 months free"}</p>
+                          </div>
                         </label>
                       </div>
                     </div>
@@ -128,7 +136,7 @@ const SelectYourPlan = () => {
                     </div>
 
                   </div>
-
+                </div>
                   <div className="stepsRightBottomContent mt-5">
                     <NavLink className="btn border-0 text-black-50 fw-bold" to="/">Go Back</NavLink>
                     <button className="btn btn-primary" type='submit' >Next Step</button>

@@ -136,9 +136,9 @@ const PickAddOns = () => {
 
   return (
     <div>
-      <div className="container center min-vh-100">
-        <div className="stepsContent row shadow-lg p-3">
-          <div className="col-4 px-0">
+      <div className="container-md center min-vh-100">
+        <div className="stepsContent row shadow-lg p-md-3 p-sm-0">
+          <div className="col-md-4 col-sm-12 px-0">
             <div className="stepLeftContent">
               <ul>
                 <li className='row'>
@@ -180,10 +180,11 @@ const PickAddOns = () => {
               </ul>
             </div>
           </div>
-          <div className="col-8 addOns stepsRightContent">
+          <div className="col-md-8 col-sm-12 addOns stepsRightContent">
             <Formik initialValues={initialValues} onSubmit={submit}>
               {({ errors }) => (
                 <Form className='d-flex flex-column justify-content-between h-100'>
+                <div className='stepMiddleContentMobile'>
                   <div className="stepRightTopContent mb-4">
                     <h2 className='stepsHeadingName'>Pick add-ons</h2>
                     <p className='stepsSubHeading'>Add-ons help enhance your gaming experience.</p>
@@ -227,7 +228,7 @@ const PickAddOns = () => {
                       </label>
                     </div>
                   </div>
-
+                </div>
                   <div className="stepsRightBottomContent">
                     <NavLink className="btn border-0 text-black-50 fw-bold" to="/selectyourplan">Go Back</NavLink>
                     <button type='submit' className="btn btn-primary" >Next Step</button>
